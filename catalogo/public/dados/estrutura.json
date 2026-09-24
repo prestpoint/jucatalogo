@@ -1,0 +1,115 @@
+{
+  "versao": 1,
+  "marcas": [
+    {
+      "id": "natura",
+      "nome": "Natura",
+      "cor": "#c65b22",
+      "ordem": 1
+    },
+    {
+      "id": "boticario",
+      "nome": "O Boticário",
+      "cor": "#24604b",
+      "ordem": 2
+    },
+    {
+      "id": "eudora",
+      "nome": "Eudora",
+      "cor": "#643d7a",
+      "ordem": 3
+    }
+  ],
+  "categorias": [
+    {
+      "id": "perfumes",
+      "nome": "Perfumes",
+      "icone": "perfume",
+      "ordem": 1,
+      "subcategorias": [
+        {
+          "id": "femininos",
+          "nome": "Femininos",
+          "ordem": 1
+        },
+        {
+          "id": "masculinos",
+          "nome": "Masculinos",
+          "ordem": 2
+        }
+      ]
+    },
+    {
+      "id": "corpo",
+      "nome": "Corpo e banho",
+      "icone": "bath",
+      "ordem": 2,
+      "subcategorias": [
+        {
+          "id": "hidratantes",
+          "nome": "Hidratantes",
+          "ordem": 1
+        },
+        {
+          "id": "sabonetes",
+          "nome": "Sabonetes",
+          "ordem": 2
+        }
+      ]
+    },
+    {
+      "id": "cabelos",
+      "nome": "Cabelos",
+      "icone": "sparkles",
+      "ordem": 3
+    },
+    {
+      "id": "rosto",
+      "nome": "Rosto",
+      "icone": "smile",
+      "ordem": 4
+    },
+    {
+      "id": "maquiagem",
+      "nome": "Maquiagem",
+      "icone": "lipstick",
+      "ordem": 5
+    },
+    {
+      "id": "cuidados",
+      "nome": "Cuidados diários",
+      "icone": "sparkles",
+      "ordem": 6
+    },
+    {
+      "id": "infantil",
+      "nome": "Infantil",
+      "icone": "smile",
+      "ordem": 7
+    },
+    {
+      "id": "masculino",
+      "nome": "Masculino",
+      "icone": "perfume",
+      "ordem": 8
+    },
+    {
+      "id": "presentes",
+      "nome": "Presentes",
+      "icone": "gift",
+      "ordem": 9
+    },
+    {
+      "id": "kits",
+      "nome": "Kits e combos",
+      "icone": "package",
+      "ordem": 10
+    },
+    {
+      "id": "mais",
+      "nome": "Mais categorias",
+      "icone": "grid",
+      "ordem": 11
+    }
+  ]
+}

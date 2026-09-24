@@ -1,0 +1,242 @@
+{
+  "produtos": [
+    {
+      "marcaId": "natura",
+      "nome": "Una Blush",
+      "volume": "75 ml",
+      "descricao": "Desodorante Colônia. Desodorante colônia com uma combinação envolvente para acompanhar seus momentos especiais.",
+      "preco": 129.9,
+      "ordem": 1,
+      "id": "una-blush",
+      "imagens": [
+        {
+          "src": "/images/prod1.png",
+          "alt": "Una Blush"
+        }
+      ],
+      "disponivel": true,
+      "destaque": true,
+      "publicado": true,
+      "categoriaId": "perfumes",
+      "subcategoriaId": "femininos"
+    },
+    {
+      "marcaId": "boticario",
+      "nome": "Malbec",
+      "volume": "100 ml",
+      "descricao": "Desodorante Colônia. Uma fragrância marcante para quem gosta de deixar sua presença por onde passa.",
+      "preco": 139.9,
+      "ordem": 2,
+      "id": "malbec",
+      "imagens": [
+        {
+          "src": "/images/prod7.png",
+          "alt": "Malbec"
+        }
+      ],
+      "disponivel": true,
+      "destaque": true,
+      "publicado": true,
+      "categoriaId": "perfumes",
+      "subcategoriaId": "masculinos"
+    },
+    {
+      "marcaId": "eudora",
+      "nome": "Eudora Diva",
+      "volume": "100 ml",
+      "descricao": "Desodorante Colônia. Desodorante colônia para tornar o seu ritual de beleza ainda mais especial.",
+      "preco": 134.9,
+      "ordem": 3,
+      "id": "eudora-diva",
+      "imagens": [
+        {
+          "src": "/images/prod8.png",
+          "alt": "Eudora Diva"
+        }
+      ],
+      "disponivel": true,
+      "destaque": true,
+      "publicado": true,
+      "categoriaId": "perfumes",
+      "subcategoriaId": "femininos"
+    },
+    {
+      "marcaId": "natura",
+      "nome": "Tododia Macadâmia",
+      "volume": "400 ml",
+      "descricao": "Hidratante Desodorante Corporal. Hidratante corporal para um momento de cuidado, maciez e carinho com a sua pele.",
+      "preco": 52.9,
+      "ordem": 4,
+      "id": "tododia",
+      "imagens": [
+        {
+          "src": "/images/prod6.png",
+          "alt": "Tododia Macadâmia"
+        }
+      ],
+      "disponivel": true,
+      "destaque": true,
+      "publicado": true,
+      "categoriaId": "corpo",
+      "subcategoriaId": "hidratantes"
+    },
+    {
+      "marcaId": "boticario",
+      "nome": "Nativa SPA Ameixa",
+      "volume": "400 g",
+      "descricao": "Creme Hidratante Corporal. Creme hidratante corporal que transforma os pequenos cuidados do dia a dia em um ritual.",
+      "preco": 59.9,
+      "ordem": 5,
+      "id": "nativa-spa",
+      "imagens": [
+        {
+          "src": "/images/prod5.png",
+          "alt": "Nativa SPA Ameixa"
+        }
+      ],
+      "disponivel": true,
+      "destaque": true,
+      "publicado": true,
+      "categoriaId": "corpo",
+      "subcategoriaId": "hidratantes"
+    },
+    {
+      "marcaId": "eudora",
+      "descricao": "Batom Hidratante. Batom hidratante para dar um toque de cor e personalidade à sua maquiagem.",
+      "nome": "Soul Kiss Me",
+      "volume": "3,5 g",
+      "ordem": 6,
+      "preco": 39.9,
+      "destaque": true,
+      "publicado": true,
+      "id": "soul-kiss",
+      "imagens": [
+        {
+          "src": "/images/prod4.png",
+          "alt": "Soul Kiss Me"
+        }
+      ],
+      "disponivel": true,
+      "categoriaId": "maquiagem"
+    },
+    {
+      "marcaId": "natura",
+      "descricao": "Gel de Limpeza Facial. Gel de limpeza facial para incluir no seu ritual diário de cuidados com o rosto.",
+      "nome": "Chronos Limpeza Facial",
+      "volume": "115 g",
+      "ordem": 7,
+      "preco": 44.9,
+      "destaque": true,
+      "publicado": true,
+      "id": "chronos",
+      "imagens": [
+        {
+          "src": "/images/prod3.png",
+          "alt": "Chronos Limpeza Facial"
+        }
+      ],
+      "disponivel": true,
+      "categoriaId": "rosto"
+    },
+    {
+      "marcaId": "eudora",
+      "descricao": "Shampoo. Shampoo para cuidar dos cabelos e deixar a sua rotina de beleza mais completa.",
+      "nome": "Siàge Reconstrói os Fios",
+      "volume": "250 ml",
+      "ordem": 8,
+      "preco": 46.9,
+      "destaque": true,
+      "publicado": true,
+      "id": "siage",
+      "imagens": [
+        {
+          "src": "/images/prod2.png",
+          "alt": "Siàge Reconstrói os Fios"
+        }
+      ],
+      "disponivel": true,
+      "categoriaId": "cabelos"
+    },
+    {
+      "marcaId": "natura",
+      "nome": "Una Blush",
+      "volume": "75 ml",
+      "descricao": "Desodorante Colônia. Desodorante colônia com uma combinação envolvente para acompanhar seus momentos especiais.",
+      "preco": 129.9,
+      "ordem": 9,
+      "id": "una-blush-exemplo",
+      "imagens": [
+        {
+          "src": "/images/prod1.png",
+          "alt": "Una Blush"
+        }
+      ],
+      "disponivel": true,
+      "destaque": true,
+      "publicado": true,
+      "categoriaId": "perfumes",
+      "subcategoriaId": "femininos"
+    },
+    {
+      "marcaId": "boticario",
+      "nome": "Malbec",
+      "volume": "100 ml",
+      "descricao": "Desodorante Colônia. Uma fragrância marcante para quem gosta de deixar sua presença por onde passa.",
+      "preco": 139.9,
+      "ordem": 10,
+      "id": "malbec-exemplo",
+      "imagens": [
+        {
+          "src": "/images/prod7.png",
+          "alt": "Malbec"
+        }
+      ],
+      "disponivel": true,
+      "destaque": true,
+      "publicado": true,
+      "categoriaId": "perfumes",
+      "subcategoriaId": "masculinos"
+    },
+    {
+      "marcaId": "eudora",
+      "nome": "Eudora Diva",
+      "volume": "100 ml",
+      "descricao": "Desodorante Colônia. Desodorante colônia para tornar o seu ritual de beleza ainda mais especial.",
+      "preco": 134.9,
+      "ordem": 11,
+      "id": "eudora-diva-exemplo",
+      "imagens": [
+        {
+          "src": "/images/prod8.png",
+          "alt": "Eudora Diva"
+        }
+      ],
+      "disponivel": true,
+      "destaque": true,
+      "publicado": true,
+      "categoriaId": "perfumes",
+      "subcategoriaId": "femininos"
+    },
+    {
+      "marcaId": "natura",
+      "nome": "Tododia Macadâmia",
+      "volume": "400 ml",
+      "descricao": "Hidratante Desodorante Corporal. Hidratante corporal para um momento de cuidado, maciez e carinho com a sua pele.",
+      "preco": 52.9,
+      "ordem": 12,
+      "id": "tododia-exemplo",
+      "imagens": [
+        {
+          "src": "/images/prod6.png",
+          "alt": "Tododia Macadâmia"
+        }
+      ],
+      "disponivel": true,
+      "destaque": true,
+      "publicado": true,
+      "categoriaId": "corpo",
+      "subcategoriaId": "hidratantes"
+    }
+  ],
+  "versao": 1
+}

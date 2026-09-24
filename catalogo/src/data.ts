@@ -1,19 +1,10 @@
 import { z } from 'zod';
 
-const imageSchema = z.object({
-  src: z.string().min(1), alt: z.string(),
-  // Recorte visual temporário das referências. Fotos reais precisam apenas de src e alt.
-  crop: z.object({ x: z.number(), y: z.number(), width: z.number().positive(), height: z.number().positive(), sourceWidth: z.number().positive() }).optional(),
-});
+import { imageSchema, productSchema } from './schemas/product';
+
 const categorySchema = z.object({
   id: z.string(), nome: z.string(), icone: z.string().default('grid'), ordem: z.number().default(0), ativo: z.boolean().default(true),
   subcategorias: z.array(z.object({ id: z.string(), nome: z.string(), ordem: z.number().default(0), ativo: z.boolean().default(true) })).default([]),
-});
-const productSchema = z.object({
-  id: z.string(), nome: z.string(), descricao: z.string(), marcaId: z.string(), categoriaId: z.string(), subcategoriaId: z.string().optional(),
-  preco: z.number().nonnegative(), precoAnterior: z.number().nonnegative().optional(), volume: z.string(),
-  destaque: z.boolean().default(false), publicado: z.boolean().default(true), disponivel: z.boolean().default(true), ordem: z.number().default(0),
-  imagens: z.array(imageSchema).min(1),
 });
 const structureSchema = z.object({
   versao: z.literal(1),
@@ -52,5 +43,3 @@ export async function loadCatalog(signal: AbortSignal): Promise<CatalogData> {
     return p.publicado && category.ativo && (!p.subcategoriaId || category.subcategorias.some(s => s.id === p.subcategoriaId && s.ativo));
   }) };
 }
-export const money = (value: number) => value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-export const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();

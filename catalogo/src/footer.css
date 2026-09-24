@@ -1,0 +1,21 @@
+/* Rodapé composto por logotipos, texto selecionável e ícones vetoriais. */
+#root>.catalog-footer{display:grid;grid-template-columns:25% 36% 39%;align-items:center;min-height:4.1cqw;padding:.55cqw 1.2cqw;background:linear-gradient(100deg,#b04a60,#bc5266 55%,#ad4258);color:#fff0e9;gap:0}
+.footer-brands{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center}
+.footer-brands>div{display:flex;align-items:center;justify-content:center;height:2.65cqw;padding:0 1cqw}
+.footer-brands>div+div{border-left:1px solid #fff0e966}
+.footer-brands img{display:block;width:100%;height:100%;object-fit:contain;filter:brightness(0) invert(1);opacity:.92}
+.footer-message{display:flex;align-items:center;justify-content:flex-end;gap:.6cqw;padding-right:2cqw;font:1.8cqw/1.2 'Satisfy',cursive;white-space:nowrap}
+.footer-message svg{width:1.7cqw;height:1.7cqw}
+.footer-promises{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center}
+.footer-promises>div{display:flex;align-items:center;justify-content:center;gap:.55cqw;min-height:2cqw;padding:0 .65cqw;font-size:.64cqw;line-height:1.2}
+.footer-promises>div+div{border-left:1px solid #fff0e966}
+.footer-promises svg{width:2cqw;height:2cqw;stroke-width:1.5}
+@media(max-width:700px){
+  #root>.catalog-footer{grid-template-columns:1fr 1.3fr;padding:8px 10px;row-gap:8px}
+  .footer-brands>div{height:28px;padding:0 7px}
+  .footer-message{font-size:clamp(12px,2.8cqw,19px);padding-right:0;gap:4px}
+  .footer-message svg{width:14px;height:14px}
+  .footer-promises{grid-column:1/-1}
+  .footer-promises>div{font-size:8px;gap:4px;padding:0 4px;min-height:24px}
+  .footer-promises svg{width:20px;height:20px}
+}

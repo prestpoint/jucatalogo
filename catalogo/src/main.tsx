@@ -5,4 +5,5 @@ import './styles.css';
 import './responsive.css';
 import './reference.css';
 import './banner.css';
+import './footer.css';
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);

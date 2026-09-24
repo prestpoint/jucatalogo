@@ -33,7 +33,9 @@
 
 /* Reserva espaço de pintura acima do banner sem deslocar seu conteúdo. */
 .hero.blueprint-banner{overflow:visible}
-#root>main{padding-top:7cqw;margin-top:-7cqw}
+/* O espaço transparente sobre o cabeçalho não deve interceptar seus controles. */
+#root>main{padding-top:7cqw;margin-top:-7cqw;pointer-events:none}
+#root>main>*{pointer-events:auto}
 
 /* Esfumado de apoio aos benefícios, sem desfocar ícones e legendas. */
 .banner-benefits-row{position:relative;isolation:isolate}

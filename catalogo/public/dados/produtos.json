@@ -15,7 +15,7 @@
         }
       ],
       "disponivel": true,
-      "destaque": true,
+      "relevancia": 3,
       "publicado": true,
       "categoriaId": "perfumes",
       "subcategoriaId": "femininos"
@@ -35,7 +35,7 @@
         }
       ],
       "disponivel": true,
-      "destaque": true,
+      "relevancia": 2,
       "publicado": true,
       "categoriaId": "perfumes",
       "subcategoriaId": "masculinos"
@@ -55,7 +55,7 @@
         }
       ],
       "disponivel": true,
-      "destaque": true,
+      "relevancia": 1,
       "publicado": true,
       "categoriaId": "perfumes",
       "subcategoriaId": "femininos"
@@ -75,7 +75,7 @@
         }
       ],
       "disponivel": true,
-      "destaque": true,
+      "relevancia": 3,
       "publicado": true,
       "categoriaId": "corpo",
       "subcategoriaId": "hidratantes"
@@ -95,7 +95,7 @@
         }
       ],
       "disponivel": true,
-      "destaque": true,
+      "relevancia": 2,
       "publicado": true,
       "categoriaId": "corpo",
       "subcategoriaId": "hidratantes"
@@ -107,7 +107,7 @@
       "volume": "3,5 g",
       "ordem": 6,
       "preco": 39.9,
-      "destaque": true,
+      "relevancia": 1,
       "publicado": true,
       "id": "soul-kiss",
       "imagens": [
@@ -126,7 +126,7 @@
       "volume": "115 g",
       "ordem": 7,
       "preco": 44.9,
-      "destaque": true,
+      "relevancia": 3,
       "publicado": true,
       "id": "chronos",
       "imagens": [
@@ -145,7 +145,7 @@
       "volume": "250 ml",
       "ordem": 8,
       "preco": 46.9,
-      "destaque": true,
+      "relevancia": 2,
       "publicado": true,
       "id": "siage",
       "imagens": [
@@ -172,7 +172,7 @@
         }
       ],
       "disponivel": true,
-      "destaque": true,
+      "relevancia": 1,
       "publicado": true,
       "categoriaId": "perfumes",
       "subcategoriaId": "femininos"
@@ -192,7 +192,7 @@
         }
       ],
       "disponivel": true,
-      "destaque": true,
+      "relevancia": 3,
       "publicado": true,
       "categoriaId": "perfumes",
       "subcategoriaId": "masculinos"
@@ -212,7 +212,7 @@
         }
       ],
       "disponivel": true,
-      "destaque": true,
+      "relevancia": 2,
       "publicado": true,
       "categoriaId": "perfumes",
       "subcategoriaId": "femininos"
@@ -232,7 +232,7 @@
         }
       ],
       "disponivel": true,
-      "destaque": true,
+      "relevancia": 1,
       "publicado": true,
       "categoriaId": "corpo",
       "subcategoriaId": "hidratantes"

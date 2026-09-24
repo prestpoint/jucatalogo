@@ -1,0 +1,5 @@
+.product-dialog .modal-brand{display:block;font-size:18px;font-weight:600;line-height:1.2;overflow-wrap:anywhere}
+.product-dialog .modal-product-info h2{font-size:22px;margin-top:7px;line-height:1.2}
+.product-dialog .modal-product-info .product-volume{font-size:14px;line-height:1.4;margin-top:5px}
+.product-dialog .modal-relevance{display:inline-flex;margin-top:15px}
+.product-dialog .modal-product-info .primary{width:70%}

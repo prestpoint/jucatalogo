@@ -16,3 +16,8 @@ Desktop.ini
 *.tmp
 *.swp
 *~
+
+# Dependências e publicação geradas localmente
+/node_modules/
+/dist/
+/.wrangler/

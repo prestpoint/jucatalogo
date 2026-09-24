@@ -1,0 +1,10 @@
+{
+  "name": "ju-catalogo-pages",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "npm --prefix catalogo ci && npm --prefix catalogo run build && node scripts/prepare-pages.mjs",
+    "dev": "npm --prefix catalogo run dev"
+  },
+  "engines": { "node": ">=22.12.0" }
+}

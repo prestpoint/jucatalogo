@@ -4,25 +4,23 @@ Projeto de um catálogo de produtos para apresentação aos clientes.
 
 ## Estado do projeto
 
-Preparação inicial do repositório. As funcionalidades, a identidade visual e a tecnologia serão definidas no alinhamento do produto.
+Catálogo público em React, Vite e TypeScript, com dados demonstrativos em JSON.
+O painel administrativo ainda será desenvolvido separadamente em `admin/`.
+
+## Desenvolvimento e publicação de teste
+
+- `npm run dev`: inicia o catálogo local (dependências instaladas em `catalogo/`).
+- `npm run build`: instala as dependências do catálogo e gera a publicação em `dist/`.
+- Antes do build completo no Windows, pare o servidor local para liberar os arquivos das dependências.
+- Consulte [PAGES.md](PAGES.md) para criar o projeto Cloudflare Pages pelo GitHub.
+
+A publicação de teste usa a raiz deste repositório, comando `npm run build` e
+saída `dist`. Catálogo em `/`; aviso de admin em preparação em `/admin/`.
+R2, autenticação e cadastro de produtos ficam para a próxima etapa.
 
 ## Repositório
 
 https://github.com/prestpoint/jucatalogo
-
-## Pontos a definir
-
-- Nome da marca e tipos de produtos.
-- Informações de cada produto: fotos, descrição, preço e variações.
-- Organização por categorias.
-- Forma de contato ou pedido dos clientes.
-- Forma de cadastro e atualização dos produtos.
-
-## Desenvolvimento
-
-Ainda não há aplicação ou comandos de execução configurados.
-
-As duas áreas serão organizadas em `catalogo/` (página dos clientes) e `admin/` (gestão de produtos com acesso restrito).
 
 ## Git manual no Windows
 

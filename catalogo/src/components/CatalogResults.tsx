@@ -1,162 +1,21 @@
-import {
-  ArrowDownWideNarrow,
-  ArrowRight,
-  Heart,
-  Search,
-  SlidersHorizontal,
-  X,
-} from "lucide-react";
+import { useState } from "react";
+import { ArrowDownWideNarrow, Grid2X2, Search, SlidersHorizontal, X } from "lucide-react";
 import type { CatalogData, Product } from "../data";
 import type { CatalogController } from "../hooks/useCatalogFilters";
-import { BrandTabs } from "./BrandTabs";
 import { ProductCard } from "./ProductCard";
+import { BrandTabs } from "./BrandTabs";
 
-export function CatalogResults({
-  catalog,
-  data,
-  onOpenFilters,
-  onDetails,
-}: {
-  catalog: CatalogController;
-  data: CatalogData;
-  onOpenFilters: () => void;
-  onDetails: (product: Product) => void;
-}) {
-  const {
-    search,
-    subcategory,
-    brands,
-    onlyHighlights,
-    onlyOffers,
-    sort,
-    setSort,
-    setSubcategory,
-    setBrands,
-    selectedSub,
-    selectedCategory,
-    activeSubs,
-    hasFilters,
-    activeCount,
-    visible,
-    brandList,
-    reset,
-  } = catalog;
-  const { loja, produtos } = data;
-  return (
-    <section className="catalog-results" aria-label="Catálogo de produtos">
-      <BrandTabs
-        brands={brands}
-        setBrands={setBrands}
-        brandList={brandList}
-        produtos={produtos}
-      />
-      <div className="results-heading">
-        <div>
-          <h2>
-            {selectedSub?.nome ||
-              selectedCategory?.nome ||
-              (onlyHighlights
-                ? "Destaques da Ju"
-                : onlyOffers
-                  ? "Ofertas especiais"
-                  : "Todos os produtos")}
-          </h2>
-        </div>
-        <span className="result-count" role="status">
-          {visible.length} {visible.length === 1 ? "produto" : "produtos"}
-        </span>
-      </div>
-      <div className="toolbar">
-        <button className="filter-mobile" onClick={() => onOpenFilters()}>
-          <SlidersHorizontal size={17} /> Filtros{" "}
-          {activeCount > 0 && <b>{activeCount}</b>}
-        </button>
-        <label className="sort">
-          <ArrowDownWideNarrow size={16} />
-          <select
-            aria-label="Ordenar produtos"
-            value={sort}
-            onChange={(e) => setSort(e.target.value)}
-          >
-            <option value="relevance">Mais relevantes</option>
-            <option value="price-asc">Menor preço</option>
-            <option value="price-desc">Maior preço</option>
-            <option value="name">Nome: A a Z</option>
-          </select>
-        </label>
-      </div>
-      {activeSubs.length > 0 && (
-        <div className="sub-pills" aria-label="Subcategorias">
-          <button
-            className={!subcategory ? "active" : ""}
-            aria-pressed={!subcategory}
-            onClick={() => setSubcategory("")}
-          >
-            Todos em {selectedCategory?.nome}
-          </button>
-          {activeSubs.map((s) => (
-            <button
-              key={s.id}
-              className={subcategory === s.id ? "active" : ""}
-              aria-pressed={subcategory === s.id}
-              onClick={() => setSubcategory(s.id)}
-            >
-              {s.nome}
-            </button>
-          ))}
-        </div>
-      )}
-      {hasFilters && (
-        <div className="active-filters">
-          <span>
-            {search
-              ? `Busca: “${search}”`
-              : [
-                  selectedCategory?.nome,
-                  selectedSub?.nome,
-                  ...brandList
-                    .filter((b) => brands.includes(b.id))
-                    .map((b) => b.nome),
-                  onlyHighlights && "Destaques",
-                  onlyOffers && "Ofertas",
-                ]
-                  .filter(Boolean)
-                  .join(" · ")}
-          </span>
-          <button onClick={reset}>
-            Limpar <X size={13} />
-          </button>
-        </div>
-      )}
-      {visible.length ? (
-        <div className="product-grid">
-          {visible.map((p) => (
-            <ProductCard
-              key={p.id}
-              product={p}
-              brand={brandList.find((b) => b.id === p.marcaId)!}
-              onDetails={onDetails}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="empty">
-          <Search size={32} />
-          <h3>Nenhum produto por aqui ainda</h3>
-          <p>Tente outra busca ou explore os outros cuidados do catálogo.</p>
-          <button className="primary" onClick={reset}>
-            Ver todos os produtos <ArrowRight size={16} />
-          </button>
-        </div>
-      )}
-      <div className="catalog-end">
-        <Heart size={16} />
-        <span>
-          {loja.demonstracao
-            ? "Seleção demonstrativa • imagens e preços de referência"
-            : "Cada escolha, um carinho com você."}
-        </span>
-      </div>
-    </section>
-  );
+export function CatalogResults({ catalog, data, onOpenFilters, onDetails }: { catalog: CatalogController; data: CatalogData; onOpenFilters: () => void; onDetails: (product: Product) => void }) {
+  const [columns, setColumns] = useState<3 | 4>(3);
+  const { search, brands, onlyOffers, sort, setSort, selectedSub, selectedCategory, hasFilters, activeCount, visible, brandList, reset } = catalog;
+  const title = selectedSub?.nome || selectedCategory?.nome || (onlyOffers ? "Ofertas" : "Produtos");
+  return <section className="catalog-results" aria-label="Catálogo de produtos">
+    <div className="catalog-controls">
+      <BrandTabs brands={brands} setBrands={catalog.setBrands} onlyOffers={onlyOffers} setOnlyOffers={catalog.setOnlyOffers} brandList={brandList} products={data.produtos} />
+      <div className="catalog-toolbar"><div><h2>{title}</h2><span role="status">{visible.length} {visible.length === 1 ? "produto" : "produtos"}</span></div><div className="toolbar-actions"><button className="filter-trigger" onClick={onOpenFilters}><SlidersHorizontal /> Filtros {activeCount > 0 && <b>{activeCount}</b>}</button><button className="view-toggle" type="button" aria-label={`Exibir ${columns === 3 ? 4 : 3} produtos por linha`} title={`Exibindo ${columns} produtos por linha`} onClick={() => setColumns((current) => current === 3 ? 4 : 3)}><Grid2X2 aria-hidden="true" /><span>{columns}</span></button><label className="sort"><ArrowDownWideNarrow /><select aria-label="Ordenar produtos" value={sort} onChange={(event) => setSort(event.target.value)}><option value="relevance">Mais relevantes</option><option value="price-asc">Menor preço</option><option value="price-desc">Maior preço</option><option value="name">Nome: A a Z</option></select></label></div></div>
+      {hasFilters && <div className="active-filters"><span>{search ? `Busca: “${search}”` : [selectedCategory?.nome, selectedSub?.nome, ...brandList.filter((brand) => brands.includes(brand.id)).map((brand) => brand.nome), onlyOffers && "Ofertas"].filter(Boolean).join(" · ")}</span><button onClick={reset}>Limpar <X /></button></div>}
+    </div>
+    {visible.length ? <div className={`product-grid grid-columns-${columns}`}>{visible.map((product) => <ProductCard key={product.id} product={product} brand={brandList.find((brand) => brand.id === product.marcaId)!} onDetails={onDetails} />)}</div> : <div className="empty"><Search /><h3>Nenhum produto encontrado</h3><p>Tente outra busca ou ajuste os filtros.</p><button onClick={reset}>Ver todos os produtos</button></div>}
+    {data.loja.demonstracao}
+  </section>;
 }

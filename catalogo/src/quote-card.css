@@ -1,4 +1,0 @@
-.care-sidebar .quote-card{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;aspect-ratio:304/160;min-height:0;padding:.8cqw .8cqw 1cqw;border:0;border-radius:.3cqw;background:#fceae4 url('/images/quote_bg.png') center / cover no-repeat}
-.quote-card-message{display:flex;flex-direction:column;align-items:center;gap:.35cqw;transform:rotate(-7deg)}
-.quote-card .quote-card-message p{margin:0;font:2cqw/1.08 'Satisfy',cursive;color:#492e2d;text-align:center}
-.quote-card-message svg{width:1.8cqw;height:1.8cqw;color:#ba485d;stroke-width:1.6}

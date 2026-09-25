@@ -15,11 +15,9 @@ export function CatalogFilters({
     | "categories"
     | "activeSubs"
     | "brandList"
-    | "hasFilters"
     | "chooseCategory"
     | "setSubcategory"
     | "toggleBrand"
-    | "reset"
   >;
   produtos: CatalogData["produtos"];
 }) {
@@ -30,11 +28,9 @@ export function CatalogFilters({
     categories,
     activeSubs,
     brandList,
-    hasFilters,
     chooseCategory,
     setSubcategory,
     toggleBrand,
-    reset,
   } = catalog;
   return (
     <>
@@ -107,11 +103,6 @@ export function CatalogFilters({
           </label>
         ))}
       </div>
-      {hasFilters && (
-        <button className="clear-filters" onClick={reset}>
-          Limpar filtros
-        </button>
-      )}
     </>
   );
 }

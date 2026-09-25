@@ -230,6 +230,7 @@ button,input,select {
 .catalog-sidebar {
   position: sticky;
   top: 12px;
+  margin-top: 12px;
   padding: 16px 12px 20px;
   border-radius: 10px;
   background: #f7eee8
@@ -395,7 +396,7 @@ button,input,select {
 }
 
 .brand-tabs button.selected {
-  background: #d28a7d;
+  background-color: #d28a7d;
   color: white;
   border-color: #d28a7d
 }
@@ -405,7 +406,10 @@ button,input,select {
 }
 
 .brand-tabs .brand-button.selected {
-  background: #f4e5de;
+  background-color: #f4e5de;
+  background-repeat: no-repeat;
+  background-position: center 28%;
+  background-size: 82% auto;
   color: var(--ink)
 }
 
@@ -422,30 +426,6 @@ button,input,select {
 }
 
 /* Grade e cartões de produtos */
-.active-filters {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: -4px 0 14px;
-  padding: 8px 13px;
-  border-radius: 8px;
-  background: #f3eae4;
-  color: #665650;
-  font-size: 12px
-}
-
-.active-filters button {
-  border: 0;
-  background: none;
-  display: flex;
-  gap: 5px;
-  align-items: center
-}
-
-.active-filters svg {
-  width: 14px
-}
-
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
@@ -720,7 +700,7 @@ button,input,select {
   gap: 3px
 }
 
-.category-list button,.clear-filters {
+.category-list button {
   width: 100%;
   border: 0;
   background: none;
@@ -766,12 +746,6 @@ button,input,select {
   height: 1px;
   background: #d8c5bc;
   margin: 16px 0
-}
-
-.clear-filters {
-  margin-top: 14px;
-  justify-content: center;
-  background: #eadbd4
 }
 
 .apply-filters {

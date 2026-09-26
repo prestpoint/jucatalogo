@@ -9,20 +9,19 @@ import { CatalogFooter } from "../components/CatalogFooter";
 import { Overlay } from "../components/Overlay";
 import { ProductDetails } from "../components/ProductDetails";
 import { ContactDialog } from "../components/ContactDialog";
-import { MobileScrollToggle } from "../components/MobileScrollToggle";
-import { useMobileScrollMode } from "../hooks/useMobileScrollMode";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 export function CatalogPage({ data }: { data: CatalogData }) {
   const catalog = useCatalogFilters(data);
   const dialogs = useCatalogDialogs(data.loja);
-  const scrollMode = useMobileScrollMode();
+  const isMobile = useMediaQuery("(max-width: 600px)");
   const searchRef = useRef<HTMLInputElement>(null);
   const productsRef = useRef<HTMLElement>(null);
   useLayoutEffect(() => {
     productsRef.current?.scrollTo({ top: 0 });
   }, []);
   const goProducts = () => {
-    if (scrollMode.mode === "page") {
+    if (isMobile) {
       productsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
@@ -33,7 +32,6 @@ export function CatalogPage({ data }: { data: CatalogData }) {
   return <>
     <a className="skip-link" href="#produtos">Pular para os produtos</a>
     <CatalogHeader catalog={catalog} searchRef={searchRef} goProducts={goProducts} />
-    <MobileScrollToggle mode={scrollMode.mode} onToggle={scrollMode.toggle} />
     <main className="catalog-main page-width" id="produtos" ref={productsRef}>
       <div className="catalog-layout"><aside className="catalog-sidebar filters">{filters}</aside><CatalogResults catalog={catalog} data={data} onOpenFilters={() => dialogs.setFiltersOpen(true)} onDetails={dialogs.setProduct} /></div>
       <CatalogFooter />

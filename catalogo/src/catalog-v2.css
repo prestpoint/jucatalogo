@@ -8,6 +8,7 @@
   --ink: #2f2321;
   --muted: #74635e;
   --line: #eaded7;
+  color-scheme: only light;
   font-family: 'DM Sans',sans-serif;
   color: var(--ink);
   background: #eee7e1
@@ -25,7 +26,12 @@ html,body {
 }
 
 button,input,select {
+  color-scheme: only light;
   font: inherit
+}
+
+dialog {
+  color-scheme: only light
 }
 
 .page-width {
@@ -279,7 +285,7 @@ button,input,select {
   align-items: center
 }
 
-.filter-trigger,.view-toggle,.sort {
+.filter-trigger,.sort {
   height: 40px;
   border: 1px solid var(--line);
   border-radius: 20px;
@@ -294,16 +300,6 @@ button,input,select {
 
 .filter-trigger {
   display: none
-}
-
-.view-toggle {
-  min-width: 48px;
-  justify-content: center;
-  cursor: pointer
-}
-
-.view-toggle span {
-  font-weight: 700
 }
 
 .filter-trigger svg,.sort svg {
@@ -433,15 +429,6 @@ button,input,select {
   gap: 20px
 }
 
-.product-grid.grid-columns-4 {
-  grid-template-columns: repeat(4,minmax(0,1fr));
-  gap: 14px
-}
-
-.grid-columns-4 .product-visual {
-  height: 250px
-}
-
 .product-card {
   background: #fffdfa;
   border: 1px solid var(--line);
@@ -491,6 +478,14 @@ button,input,select {
   height: 21px
 }
 
+.relevance-heart {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  line-height: 0
+}
+
 .product-info {
   padding: 12px 20px 18px;
   display: grid;
@@ -528,7 +523,11 @@ button,input,select {
   margin: 0;
   font-size: 17px;
   line-height: 1.3;
-  font-weight: 500
+  font-weight: 500;
+  min-height: 2.6em;
+  max-height: 2.6em;
+  overflow: hidden;
+  display: block
 }
 
 .product-volume {
@@ -760,10 +759,6 @@ button,input,select {
   z-index: 20
 }
 
-.mobile-scroll-toggle {
-  display: none
-}
-
 .initial-state {
   min-height: 100vh;
   display: grid;
@@ -814,9 +809,6 @@ button,input,select {
   .product-grid {
     grid-template-columns: repeat(2,minmax(0,1fr))
   }
-  .product-grid.grid-columns-4 {
-    grid-template-columns: repeat(2,minmax(0,1fr))
-  }
   .product-visual {
     height: 270px
   }
@@ -824,58 +816,35 @@ button,input,select {
 
 /* Celulares */
 @media (max-width: 600px) {
-  html:not([data-mobile-scroll="page"]),
-  html:not([data-mobile-scroll="page"]) body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    overscroll-behavior: none
-  }
-  html:not([data-mobile-scroll="page"]) body {
-    position: fixed;
-    inset: 0
-  }
-  html:not([data-mobile-scroll="page"]) #root {
-    height: 100vh;
-    height: 100dvh;
-    min-height: 0;
-    display: grid;
-    grid-template-rows: 270px minmax(0,1fr);
-    overflow: hidden
-  }
-  html[data-mobile-scroll="page"],
-  html[data-mobile-scroll="page"] body {
+  html,
+  body {
     height: auto;
     min-height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: none
   }
-  html[data-mobile-scroll="page"] body::-webkit-scrollbar {
+  body::-webkit-scrollbar {
     display: none
   }
-  html[data-mobile-scroll="page"] #root {
+  #root {
     height: auto;
     min-height: 100dvh;
     display: block;
     overflow: visible
   }
   .catalog-hero {
-    grid-template-columns: minmax(0,5fr) minmax(0,2fr);
+    grid-template-columns: minmax(0,1fr);
     grid-template-rows: minmax(0,1fr) auto;
     gap: 12px;
     min-height: 270px;
     padding: max(30px,env(safe-area-inset-top)) 14px 15px
   }
-  html:not([data-mobile-scroll="page"]) .catalog-hero {
-    height: 270px;
-    min-height: 0
-  }
   .consultant-portrait {
     display: none
   }
   .hero-copy {
-    grid-column: 1;
+    grid-column: 1/-1;
     grid-template-rows: repeat(3,minmax(0,1fr));
     min-width: 0
   }
@@ -889,7 +858,8 @@ button,input,select {
     display: contents
   }
   .hero-copy h1 {
-    font-size: clamp(32px,8.8vw,37px);
+    width: 80%;
+    font-size: clamp(42px,11vw,48px);
     line-height: .9;
     margin: 0;
     transform: rotate(-7deg)
@@ -910,72 +880,15 @@ button,input,select {
     margin: 6px auto 0
   }
   .hero-brands {
-    grid-column: 2;
-    grid-row: 1;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3,minmax(0,1fr));
-    align-self: stretch;
-    margin-top: 0
-  }
-  .hero-brands>div {
-    height: auto;
-    min-height: 58px;
-    padding: 5px 10px;
-    border-left: 0;
-    border-bottom: 1px solid #9f8e8666
-  }
-  .hero-brands>div:last-child {
-    border-bottom: 0
-  }
-  .hero-brands img {
-    width: min(72%,120px);
-    height: 72%;
-    max-height: 58px;
-    justify-self: center;
-    align-self: center
+    display: none
   }
   .catalog-main {
     padding-left: 14px;
     padding-right: 14px;
-    touch-action: pan-y;
-    overscroll-behavior-y: contain;
-    -webkit-overflow-scrolling: touch
-  }
-  html:not([data-mobile-scroll="page"]) .catalog-main {
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    overflow-x: hidden;
-    overflow-y: scroll
-  }
-  html[data-mobile-scroll="page"] .catalog-main {
     overflow: visible;
-    overscroll-behavior-y: auto
-  }
-  .mobile-scroll-toggle {
-    position: fixed;
-    z-index: 30;
-    top: 190px;
-    left: max(14px,env(safe-area-inset-left));
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    display: grid;
-    place-items: center;
-    border: 1px solid #d8a297;
-    border-radius: 50%;
-    background: #fffaf6e8;
-    color: var(--coral);
-    box-shadow: 0 4px 14px #5d3a3026;
-    backdrop-filter: blur(5px)
-  }
-  .mobile-scroll-toggle.page-scroll-enabled {
-    background: var(--coral);
-    color: #fff
-  }
-  .mobile-scroll-toggle svg {
-    width: 20px;
-    height: 20px
+    touch-action: pan-y;
+    overscroll-behavior-y: auto;
+    -webkit-overflow-scrolling: touch
   }
   .hero-search-wrap {
     grid-column: 1/-1;
@@ -1039,55 +952,89 @@ button,input,select {
     display: none
   }
   .catalog-toolbar {
-    align-items: flex-start
+    display: grid;
+    grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
+    align-items: center;
+    gap: 6px
   }
   .catalog-toolbar>div:first-child {
     display: block
   }
   .toolbar-actions {
+    justify-self: end;
     gap: 5px
   }
   .filter-trigger,.sort {
     padding: 0 9px;
     font-size: 11px
   }
+  .filter-trigger {
+    display: flex;
+    justify-self: center
+  }
   .sort svg {
     display: none
   }
   .product-grid {
-    gap: 10px
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 6px
   }
-  .product-grid.grid-columns-2 {
-    grid-template-columns: repeat(2,minmax(0,1fr))
-  }
-  .product-grid.grid-columns-3 {
-    grid-template-columns: repeat(3,minmax(0,1fr))
-  }
-  .grid-columns-3 .product-visual {
-    height: 140px
+  .product-card {
+    display: grid;
+    grid-template-rows: 140px minmax(0,1fr)
   }
   .product-visual {
-    height: 180px
+    height: 140px;
+    overflow: hidden
+  }
+  .highlight {
+    top: 8px;
+    right: 8px;
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center
   }
   .product-info {
-    padding: 9px 11px 13px;
-    display: block
+    min-width: 0;
+    padding: 8px 9px 10px;
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    grid-template-rows: auto minmax(2.2em,auto) auto auto;
+    grid-template-areas: 'brand' 'name' 'volume' 'price';
+    align-content: start;
+    gap: 5px
   }
   .product-brand {
-    display: inline-block;
-    margin-bottom: 6px
+    max-width: 100%;
+    padding: 3px 8px;
+    font-size: 9px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
   }
   .product-info h3 {
-    font-size: 14px
+    min-width: 0;
+    max-width: 100%;
+    min-height: 2.2em;
+    max-height: 2.2em;
+    font-size: 14px;
+    line-height: 1.1;
+    overflow-wrap: anywhere
   }
   .product-volume {
-    display: block;
-    margin-top: 3px
+    min-width: 0;
+    font-size: 10px;
+    align-self: start
   }
   .product-price {
-    display: inline-block;
-    margin-top: 8px;
-    font-size: 15px
+    max-width: 100%;
+    margin-top: 2px;
+    padding: 4px 8px;
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden
   }
   .catalog-footer {
     padding: 15px 8px;

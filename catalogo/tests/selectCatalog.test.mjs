@@ -23,6 +23,7 @@ for (const [source, output] of [
 }
 const { selectCatalog } = await import(pathToFileURL(join(temporary, 'selectCatalog.mjs')));
 const { productSchema } = await import(pathToFileURL(join(temporary, 'product.mjs')));
+const { truncateText, truncateTextToLines } = await import(pathToFileURL(join(temporary, 'format.mjs')));
 
 const defaults = {
   search: '', category: '', subcategory: '', brands: [],
@@ -59,6 +60,11 @@ test('busca ignora acentos, caixa e espaços nas extremidades', () => {
   assert.deepEqual(ids({ search: 'colonia' }), ['b']);
   assert.deepEqual(ids({ search: 'boticario' }), ['b']);
   assert.deepEqual(ids({ search: 'inexistente' }), []);
+});
+test('nome do card é cortado antes da renderização e recebe reticências', () => {
+  assert.equal(truncateText('Siàge Reconstrói os Fios', 21), 'Siàge Reconstrói os…');
+  assert.equal(truncateText('Una Blush', 21), 'Una Blush');
+  assert.equal(truncateTextToLines('12345 12345 12345', 10, 2, text => text.length), '12345 12345 123…');
 });
 test('combina categoria, subcategoria, marca e destaque', () => {
   assert.deepEqual(ids({ category: 'perfumes', subcategory: 'feminino', brands: ['natura'], onlyHighlights: true }), ['a']);

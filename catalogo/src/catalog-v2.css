@@ -760,6 +760,10 @@ button,input,select {
   z-index: 20
 }
 
+.mobile-scroll-toggle {
+  display: none
+}
+
 .initial-state {
   min-height: 100vh;
   display: grid;
@@ -820,18 +824,18 @@ button,input,select {
 
 /* Celulares */
 @media (max-width: 600px) {
-  html,
-  body {
+  html[data-mobile-scroll="page"],
+  html[data-mobile-scroll="page"] body {
     height: auto;
     min-height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: none
   }
-  body::-webkit-scrollbar {
+  html[data-mobile-scroll="page"] body::-webkit-scrollbar {
     display: none
   }
-  #root {
+  html[data-mobile-scroll="page"] #root {
     height: auto;
     min-height: 100dvh;
     display: block;
@@ -910,9 +914,38 @@ button,input,select {
   .catalog-main {
     padding-left: 14px;
     padding-right: 14px;
-    overflow: visible;
     touch-action: pan-y;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch
+  }
+  html[data-mobile-scroll="page"] .catalog-main {
+    overflow: visible;
     overscroll-behavior-y: auto
+  }
+  .mobile-scroll-toggle {
+    position: fixed;
+    z-index: 30;
+    top: 190px;
+    left: max(14px,env(safe-area-inset-left));
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    border: 1px solid #d8a297;
+    border-radius: 50%;
+    background: #fffaf6e8;
+    color: var(--coral);
+    box-shadow: 0 4px 14px #5d3a3026;
+    backdrop-filter: blur(5px)
+  }
+  .mobile-scroll-toggle.page-scroll-enabled {
+    background: var(--coral);
+    color: #fff
+  }
+  .mobile-scroll-toggle svg {
+    width: 20px;
+    height: 20px
   }
   .hero-search-wrap {
     grid-column: 1/-1;

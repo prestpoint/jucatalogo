@@ -31,12 +31,13 @@ automática pela integração Git.
 
 - `/`: catálogo funcional com os produtos demonstrativos.
 - `/dados/*.json`: dados atuais, incluídos na publicação.
-- `/admin/`: apenas um aviso de painel em preparação; não há login ou cadastro.
+- `/admin/`: painel administrativo mobile-first para validação da estrutura.
 - Endereços inexistentes: página 404, sem abrir o catálogo como se fosse o admin.
 
-O build instala as dependências do catálogo pelo seu lockfile, compila a aplicação
-e reúne os arquivos em `dist/`. Somente essa pasta é publicada; o código-fonte e
-as instruções do projeto não fazem parte do site. `dist/` não deve ser commitada.
+O build instala as dependências do catálogo e do painel pelos respectivos
+lockfiles, compila as duas aplicações e reúne os arquivos em `dist/`. Somente
+essa pasta é publicada; o código-fonte e as instruções do projeto não fazem parte
+do site. `dist/` não deve ser commitada.
 
 Foram incluídas instruções de não indexação para buscadores. Elas não restringem
 acesso: o endereço de teste é público. Os dados e preços continuam demonstrativos.
@@ -66,10 +67,9 @@ ao GitHub, crie o projeto Pages com a configuração acima.
 
 ## Próxima etapa
 
-O admin continuará em `admin/`. Quando implementado, seu build substituirá o aviso
-em `dist/admin/` e terá base `/admin/`. Autenticação, API de gravação e vínculo com
-um bucket R2 próprio serão configurados nessa etapa. Até lá, alterações nos JSONs
-exigem uma nova publicação pelo Git.
+O painel já é publicado em `/admin/`, ainda sem autenticação. A API de gravação e
+o vínculo definitivo com o bucket R2 serão configurados antes do uso real. Até
+lá, alterações nos JSONs exigem uma nova publicação pelo Git.
 
 Referências:
 - https://developers.cloudflare.com/pages/configuration/build-configuration/

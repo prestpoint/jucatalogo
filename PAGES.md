@@ -41,6 +41,17 @@ as instruções do projeto não fazem parte do site. `dist/` não deve ser commi
 Foram incluídas instruções de não indexação para buscadores. Elas não restringem
 acesso: o endereço de teste é público. Os dados e preços continuam demonstrativos.
 
+## Métricas do catálogo
+
+As métricas de visitantes mensais e cliques no WhatsApp usam a Function
+`/api/metrics`. Para ativá-las no Pages, vincule o bucket R2 do catálogo com o
+nome de variável `CATALOG_BUCKET`. Sem esse vínculo, o painel mostra “aguardando
+conexão” e não inventa contagens locais.
+
+Os eventos ficam no prefixo `_metrics/` do bucket. Visitantes são identificados
+por um código aleatório guardado no navegador e contado uma vez por mês; nenhum
+dado pessoal é gravado nesse registro.
+
 ## Preparar localmente
 
 Na raiz do repositório:

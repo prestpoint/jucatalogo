@@ -369,6 +369,7 @@ button,input,select {
 .brand-tabs .brand-button {
   position: relative;
   padding: 0;
+  background-image: var(--brand-image);
   background-color: #fffdfa;
   background-repeat: no-repeat;
   background-position: center 28%;
@@ -748,11 +749,6 @@ button,input,select {
   margin: 16px 0
 }
 
-.apply-filters {
-  margin-top: 20px;
-  width: 100%
-}
-
 .skip-link {
   position: fixed;
   left: 15px;
@@ -825,43 +821,139 @@ button,input,select {
 /* Celulares */
 @media (max-width: 600px) {
   .catalog-hero {
-    grid-template-columns: 36% 64%;
-    min-height: 210px;
-    padding: 15px 14px
+    grid-template-columns: minmax(0,5fr) minmax(0,2fr);
+    grid-template-rows: minmax(0,1fr) auto;
+    gap: 12px;
+    min-height: 270px;
+    padding: max(30px,env(safe-area-inset-top)) 14px 15px
   }
   .consultant-portrait {
-    width: 130px;
-    height: 130px
+    display: none
+  }
+  .hero-copy {
+    grid-column: 1;
+    grid-template-rows: repeat(3,minmax(0,1fr));
+    min-width: 0
+  }
+  .hero-copy>div {
+    min-height: 0;
+    padding: 0;
+    align-self: stretch;
+    align-items: center
+  }
+  .hero-brand-column {
+    display: contents
   }
   .hero-copy h1 {
-    font-size: 34px;
-    margin-bottom: 8px
+    font-size: clamp(32px,8.8vw,37px);
+    line-height: .9;
+    margin: 0;
+    transform: rotate(-7deg)
   }
   .hero-copy strong {
-    font-size: 12px
+    font-size: 12px;
+    line-height: 1.2
   }
   .hero-copy p {
-    font-size: 13px
+    font-size: 13px;
+    line-height: 1.2
+  }
+  .hero-copy-tagline {
+    align-self: stretch;
+    align-items: center
   }
   .hero-rule {
-    margin: 8px auto
+    margin: 6px auto 0
   }
   .hero-brands {
-    margin-top: 8px
+    grid-column: 2;
+    grid-row: 1;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3,minmax(0,1fr));
+    align-self: stretch;
+    margin-top: 0
   }
   .hero-brands>div {
-    height: 50px;
-    padding: 4px 8px
+    height: auto;
+    min-height: 58px;
+    padding: 5px 10px;
+    border-left: 0;
+    border-bottom: 1px solid #9f8e8666
+  }
+  .hero-brands>div:last-child {
+    border-bottom: 0
+  }
+  .hero-brands img {
+    width: min(72%,120px);
+    height: 72%;
+    max-height: 58px;
+    justify-self: center;
+    align-self: center
   }
   .catalog-main {
     padding-left: 14px;
     padding-right: 14px
   }
   .hero-search-wrap {
-    padding: 0 14px
+    grid-column: 1/-1;
+    grid-row: 2;
+    width: 80%;
+    padding: 0;
+    justify-self: center
   }
   .catalog-search {
-    height: 48px
+    height: 44px;
+    gap: 8px;
+    padding: 0 12px
+  }
+  .catalog-search>svg {
+    width: 19px;
+    height: 19px
+  }
+  .catalog-search input {
+    font-size: 13px
+  }
+  .brand-tabs {
+    grid-template-columns: repeat(5,minmax(0,1fr));
+    gap: 4px;
+    overflow: hidden;
+    padding-bottom: 0
+  }
+  .brand-tabs button {
+    min-height: 0px;
+    min-width: 0;
+    height: 58px;
+    padding: 4px 2px;
+    gap: 3px
+  }
+  .brand-tabs button:first-child,.offers-tab {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center
+  }
+  .brand-tabs button:first-child svg,.offers-tab svg {
+    width: 17px;
+    height: 17px
+  }
+  .brand-tabs button span {
+    font-size: 9px;
+    line-height: 1.1
+  }
+  .brand-tabs small {
+    font-size: 8px
+  }
+  .brand-tabs .brand-button,.brand-tabs .brand-button.selected {
+    background-image: var(--brand-mobile-image);
+    background-size: 96% auto
+  }
+  .brand-tabs .brand-button small,
+  .brand-tabs .brand-tab-natura small,
+  .brand-tabs .brand-tab-boticario small,
+  .brand-tabs .brand-tab-eudora small {
+    left: 50%
+  }
+  .offers-tab small {
+    display: none
   }
   .catalog-toolbar {
     align-items: flex-start
@@ -881,6 +973,15 @@ button,input,select {
   }
   .product-grid {
     gap: 10px
+  }
+  .product-grid.grid-columns-2 {
+    grid-template-columns: repeat(2,minmax(0,1fr))
+  }
+  .product-grid.grid-columns-3 {
+    grid-template-columns: repeat(3,minmax(0,1fr))
+  }
+  .grid-columns-3 .product-visual {
+    height: 140px
   }
   .product-visual {
     height: 180px
@@ -907,18 +1008,17 @@ button,input,select {
   }
   .catalog-footer {
     padding: 15px 8px;
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: 1fr
   }
   .catalog-footer>div {
+    display: none;
     padding: 6px;
     gap: 7px
   }
-  .catalog-footer>div:nth-child(2) {
-    border: 0
-  }
   .catalog-footer .footer-thanks {
-    grid-column: 1/-1;
-    border-top: 1px solid #967d7266
+    display: flex;
+    grid-column: 1;
+    border: 0
   }
   .catalog-footer svg {
     width: 30px
@@ -927,7 +1027,28 @@ button,input,select {
     grid-template-columns: 1fr;
     padding: 45px 22px 25px
   }
+  .product-dialog .modal-product-info .primary {
+    display: flex;
+    margin-inline: auto
+  }
   .modal-product-photo .photo {
     height: 220px
+  }
+  .filter-dialog {
+    width: 90%;
+    max-width: 90%;
+    overflow: hidden
+  }
+  .filter-dialog .dialog-body {
+    max-height: calc(100dvh - 30px);
+    padding: 48px 18px 22px;
+    overflow: hidden
+  }
+  .filter-dialog .icon-button.close {
+    top: 55px;
+    right: 40px
+  }
+  .filter-dialog .filters {
+    min-width: 0
   }
 }

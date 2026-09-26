@@ -1,5 +1,4 @@
 import { useLayoutEffect, useRef } from "react";
-import { Check } from "lucide-react";
 import type { CatalogData } from "../data";
 import { useCatalogFilters } from "../hooks/useCatalogFilters";
 import { useCatalogDialogs } from "../hooks/useCatalogDialogs";
@@ -28,7 +27,7 @@ export function CatalogPage({ data }: { data: CatalogData }) {
       <div className="catalog-layout"><aside className="catalog-sidebar filters">{filters}</aside><CatalogResults catalog={catalog} data={data} onOpenFilters={() => dialogs.setFiltersOpen(true)} onDetails={dialogs.setProduct} /></div>
       <CatalogFooter />
     </main>
-    {dialogs.filtersOpen && <Overlay title="Filtros e categorias" className="filter-dialog" onClose={() => dialogs.setFiltersOpen(false)}><div className="filters">{filters}</div><button className="primary apply-filters" onClick={() => { dialogs.setFiltersOpen(false); goProducts(); }}>Mostrar {catalog.visible.length} produtos <Check /></button></Overlay>}
+    {dialogs.filtersOpen && <Overlay title="Filtros e categorias" className="filter-dialog" onClose={() => dialogs.setFiltersOpen(false)}><div className="filters"><CatalogFilters catalog={catalog} produtos={data.produtos} onCategorySelected={() => { dialogs.setFiltersOpen(false); goProducts(); }} /></div></Overlay>}
     {dialogs.product && <ProductDetails product={dialogs.product} brandList={catalog.brandList} loja={data.loja} contact={dialogs.contact} onClose={() => dialogs.setProduct(null)} />}
     {dialogs.contactOpen && <ContactDialog onClose={() => dialogs.setContactOpen(false)} />}
   </>;

@@ -6,6 +6,7 @@ import { CategoryIcon } from "./CategoryIcon";
 export function CatalogFilters({
   catalog,
   produtos,
+  onCategorySelected,
 }: {
   catalog: Pick<
     CatalogController,
@@ -20,6 +21,7 @@ export function CatalogFilters({
     | "toggleBrand"
   >;
   produtos: CatalogData["produtos"];
+  onCategorySelected?: () => void;
 }) {
   const {
     category,
@@ -41,7 +43,10 @@ export function CatalogFilters({
         <button
           className={!category ? "selected" : ""}
           aria-pressed={!category}
-          onClick={() => chooseCategory("")}
+          onClick={() => {
+            chooseCategory("");
+            onCategorySelected?.();
+          }}
         >
           <ShoppingBag size={19} />
           <span>Todos os produtos</span>
@@ -56,7 +61,10 @@ export function CatalogFilters({
                   ? category === c.id
                   : undefined
               }
-              onClick={() => chooseCategory(c.id)}
+              onClick={() => {
+                chooseCategory(c.id);
+                onCategorySelected?.();
+              }}
             >
               <CategoryIcon name={c.icone} />
               <span>{c.nome}</span>
@@ -74,9 +82,10 @@ export function CatalogFilters({
                     key={s.id}
                     aria-pressed={subcategory === s.id}
                     className={subcategory === s.id ? "active" : ""}
-                    onClick={() =>
-                      setSubcategory(subcategory === s.id ? "" : s.id)
-                    }
+                    onClick={() => {
+                      setSubcategory(subcategory === s.id ? "" : s.id);
+                      onCategorySelected?.();
+                    }}
                   >
                     {s.nome}
                   </button>

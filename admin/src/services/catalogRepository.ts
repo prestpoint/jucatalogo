@@ -4,7 +4,7 @@ const productDraftKey = "ju-admin-products-draft-v1";
 const structureDraftKey = "ju-admin-structure-draft-v1";
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-export const previewAssetUrl = (src: string) => src.startsWith("/") ? `${baseUrl}${src}` : src;
+export const previewAssetUrl = (src: string) => src.startsWith("/api/") ? src : src.startsWith("/") ? `${baseUrl}${src}` : src;
 
 async function readJson(path: string) {
   const response = await fetch(path, { cache: "no-cache" });

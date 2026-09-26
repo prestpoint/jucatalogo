@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { CatalogData, Product } from "../data";
+import { trackWhatsAppClick } from "../services/metrics";
 
 export function useCatalogDialogs(loja: CatalogData["loja"]) {
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -7,6 +8,7 @@ export function useCatalogDialogs(loja: CatalogData["loja"]) {
   const [contactOpen, setContactOpen] = useState(false);
 
   const contact = (item?: Product) => {
+    trackWhatsAppClick(item?.id);
     if (!loja.whatsapp) {
       setProduct(null);
       setContactOpen(true);

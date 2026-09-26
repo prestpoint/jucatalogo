@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import type { CatalogData } from "../data";
 import { useCatalogFilters } from "../hooks/useCatalogFilters";
 import { useCatalogDialogs } from "../hooks/useCatalogDialogs";
@@ -10,6 +10,7 @@ import { Overlay } from "../components/Overlay";
 import { ProductDetails } from "../components/ProductDetails";
 import { ContactDialog } from "../components/ContactDialog";
 import { useMediaQuery } from "../hooks/useMediaQuery";
+import { trackMonthlyVisit } from "../services/metrics";
 
 export function CatalogPage({ data }: { data: CatalogData }) {
   const catalog = useCatalogFilters(data);
@@ -17,6 +18,7 @@ export function CatalogPage({ data }: { data: CatalogData }) {
   const isMobile = useMediaQuery("(max-width: 600px)");
   const searchRef = useRef<HTMLInputElement>(null);
   const productsRef = useRef<HTMLElement>(null);
+  useEffect(() => trackMonthlyVisit(), []);
   useLayoutEffect(() => {
     productsRef.current?.scrollTo({ top: 0 });
   }, []);

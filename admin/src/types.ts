@@ -1,0 +1,20 @@
+export type Brand = { id: string; nome: string; cor: string; ordem: number };
+export type Subcategory = { id: string; nome: string; ordem: number; ativo?: boolean };
+export type Category = { id: string; nome: string; icone: string; ordem: number; ativo?: boolean; subcategorias: Subcategory[] };
+export type Product = {
+  id: string;
+  nome: string;
+  descricao: string;
+  marcaId: string;
+  categoriaId: string;
+  subcategoriaId?: string;
+  preco: number;
+  precoAnterior?: number;
+  volume: string;
+  relevancia: 1 | 2 | 3;
+  publicado: boolean;
+  disponivel: boolean;
+  ordem: number;
+  imagens: Array<{ src: string; alt: string }>;
+};
+export type AdminCatalog = { brands: Brand[]; categories: Category[]; products: Product[] };

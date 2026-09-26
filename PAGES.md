@@ -49,6 +49,12 @@ As métricas de visitantes mensais e cliques no WhatsApp usam a Function
 nome de variável `CATALOG_BUCKET`. Sem esse vínculo, o painel mostra “aguardando
 conexão” e não inventa contagens locais.
 
+O upload e a listagem de imagens também usam `CATALOG_BUCKET`. Essas operações
+exigem que `/admin/*` e a listagem da API estejam protegidos pelo Cloudflare
+Access. Configure `ADMIN_EMAILS` como uma lista, separada por vírgulas, dos
+e-mails autorizados; a Function valida o cabeçalho de identidade fornecido pelo
+Access antes de aceitar gravações.
+
 Os eventos ficam no prefixo `_metrics/` do bucket. Visitantes são identificados
 por um código aleatório guardado no navegador e contado uma vez por mês; nenhum
 dado pessoal é gravado nesse registro.

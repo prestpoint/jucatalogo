@@ -824,6 +824,25 @@ button,input,select {
 
 /* Celulares */
 @media (max-width: 600px) {
+  html:not([data-mobile-scroll="page"]),
+  html:not([data-mobile-scroll="page"]) body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none
+  }
+  html:not([data-mobile-scroll="page"]) body {
+    position: fixed;
+    inset: 0
+  }
+  html:not([data-mobile-scroll="page"]) #root {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: 270px minmax(0,1fr);
+    overflow: hidden
+  }
   html[data-mobile-scroll="page"],
   html[data-mobile-scroll="page"] body {
     height: auto;
@@ -847,6 +866,10 @@ button,input,select {
     gap: 12px;
     min-height: 270px;
     padding: max(30px,env(safe-area-inset-top)) 14px 15px
+  }
+  html:not([data-mobile-scroll="page"]) .catalog-hero {
+    height: 270px;
+    min-height: 0
   }
   .consultant-portrait {
     display: none
@@ -917,6 +940,13 @@ button,input,select {
     touch-action: pan-y;
     overscroll-behavior-y: contain;
     -webkit-overflow-scrolling: touch
+  }
+  html:not([data-mobile-scroll="page"]) .catalog-main {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: scroll
   }
   html[data-mobile-scroll="page"] .catalog-main {
     overflow: visible;
@@ -1093,13 +1123,29 @@ button,input,select {
     overflow: hidden
   }
   .filter-dialog .dialog-body {
+    height: calc(100dvh - 30px);
     max-height: calc(100dvh - 30px);
-    padding: 48px 18px 22px;
+    padding: 22px 18px;
+    display: flex;
+    flex-direction: column;
     overflow: hidden
   }
+  .filter-dialog .dialog-body>.filters {
+    flex: 1;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-width: none;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch
+  }
+  .filter-dialog .dialog-body>.filters::-webkit-scrollbar {
+    display: none
+  }
   .filter-dialog .icon-button.close {
-    top: 55px;
-    right: 40px
+    top: 3%;
+    right: 8%
   }
   .filter-dialog .filters {
     min-width: 0
